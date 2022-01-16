@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+expected
+
+# please use yarn on this project not npm
+.package-lock.json
