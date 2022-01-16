@@ -1,7 +1,11 @@
 # My Autocompleate app
 
-It is is implementational of am auto-complete list which will be updated dynamically while the user types in a search box. The result will be comprised of products containing information like title, price and a couple of images.
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- It is implementational of an auto-complete list which will be updated dynamically while the user types in a search box. The result will be comprised of products containing information like title, price and a couple of images.
+- Deployed version is available [here](https://autocomplete.marzzy-codes.com/)
+
+## Tools
+
+- [React](https://reactjs.org/) + Typescript
 
 ## Available Scripts
 
