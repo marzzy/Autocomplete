@@ -1,14 +1,14 @@
-import './App.css';
+import { Header, Input, Cards } from 'components';
+import { Box } from '@chakra-ui/react';
+import fakeCardsData from 'test/fakeCardsData';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          This is an Autocomplete App
-        </p>
-      </header>
-    </div>
+    <Box maxW="960px" m="auto">
+      <Header />
+      <Input />
+      <Cards data={fakeCardsData} />
+    </Box>
   );
 }
 
