@@ -47,7 +47,7 @@ const fakeCardsData:Array<CardDataType> = [
   }, {
     title: 'Weekday THURSDAY Tshirt red',
     gtin: '2001067926878',
-    gender: 'not-set',
+    gender: 'unisex',
     sale_price: '58.34 EUR',
     price: '58.35 EUR',
     image_link: 'https://mosaic01.ztat.net/vgs/media/large/WE/B2/1N/00/HQ/11/WEB21N00H-Q11@12.4.jpg',

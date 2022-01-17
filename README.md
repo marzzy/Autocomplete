@@ -6,8 +6,12 @@
 ## Tools
 
 - [React](https://reactjs.org/) + Typescript
+- [Chakra-UI](https://chakra-ui.com/): styling framework
+- [papaparse](papaparse.com): parsing CSV to Json
 
 ## Available Scripts
+
+***NOTICE*** : The project fully compatible with the node v16.13.2 (Latest LTS: Gallium)
 
 In the project directory, you can run:
 
