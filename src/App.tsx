@@ -4,12 +4,15 @@ import { Box } from '@chakra-ui/react';
 import {
   useEffect, useState, ChangeEvent, EffectCallback,
 } from 'react';
-import { CardData } from 'types/cardData';
 import Papa from 'papaparse';
+import WorkerBuilder from 'workers/workerBuilder';
+import SearchWorker from 'workers/searchWorker';
+
+const searchInstance = new WorkerBuilder(SearchWorker);
 
 function App() {
   const [cardsData, setCardsData] = useState([]);
-  const [searchResult, setSearchResult] = useState([]);
+  const [searchResult, setSearchResult] = useState([[]]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchValue, setSearchValue] = useState('');
 
@@ -18,25 +21,27 @@ function App() {
       download: true,
       header: true,
       complete(results: any) {
-        // console.log('Finished:', results.data);
         setCardsData(results.data);
       },
     });
   }, []);
 
+  searchInstance.onmessage = ({ data }) => {
+    setSearchResult(data);
+    setIsLoading(false);
+  };
+
   function onSearchValueChange(event: ChangeEvent<HTMLInputElement>): void {
     setSearchValue(event.target.value);
-    setIsLoading(true);
+    setIsLoading(!!(event.target.value));
   }
 
   useEffect((): ReturnType<EffectCallback> => {
     const timeout = setTimeout(
       () => {
-        const result = cardsData.filter(
-          (item: CardData) => item.title.toLowerCase().includes(searchValue.toLowerCase()),
-        );
-        setSearchResult(result);
-        setIsLoading(false);
+        if (searchValue) {
+          searchInstance.postMessage({ cardsData, searchValue });
+        }
       },
       1000,
     );
@@ -50,8 +55,8 @@ function App() {
       <Header />
       <Input onChange={onSearchValueChange} />
       {isLoading && <p>loading...</p>}
-      {searchResult.length > 0 && searchValue && !isLoading && <Cards data={searchResult} />}
-      {searchResult.length === 0 && searchValue && !isLoading && <p>not found</p>}
+      {searchResult[0].length > 0 && searchValue && !isLoading && <Cards data={searchResult} />}
+      {searchResult[0].length === 0 && searchValue && !isLoading && <p>not found</p>}
     </Box>
   );
 }
