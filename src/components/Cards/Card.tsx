@@ -2,9 +2,9 @@
 import { useState } from 'react';
 import { CardData } from 'types/cardData';
 import {
-  Box, Heading, Image, Flex, Text, Spacer,
+  Box, Heading, Flex, Text, Spacer,
 } from '@chakra-ui/react';
-import getRandomImagePlaceholder from './utils';
+import Image from 'components/Image';
 import GenderSvg from './Gender';
 import Price from './Price';
 import AdditionalImages from './AdditionalImages';
@@ -13,7 +13,6 @@ function Card(props: CardData) {
   const {
     title, gtin, gender, price, sale_price, image_link, additional_image_link,
   } = props;
-  const randomImagePlaceholder = getRandomImagePlaceholder();
   const [isShowMore, setIsShowMoreValue] = useState(false);
 
   function toggleDisplayMore() {
@@ -28,10 +27,6 @@ function Card(props: CardData) {
             <Image
               src={image_link}
               alt={title}
-              objectFit="contain"
-              w="90px"
-              h="90px"
-              fallbackSrc={randomImagePlaceholder}
             />
           </Box>
           <Box mx={3}>
