@@ -1,5 +1,8 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/jsx-props-no-spreading */
-import { SimpleGrid, Box } from '@chakra-ui/react';
+import {
+  SimpleGrid, Box, Button, Flex,
+} from '@chakra-ui/react';
 import { CardData } from 'types/cardData';
 import { MouseEvent, useEffect, useState } from 'react';
 import Card from './Card';
@@ -19,21 +22,19 @@ function Cards(props: {data: CardData[][]}) {
 
   return (
     <Box my="5">
-      <SimpleGrid columns={2} spacing={10}>
+      <SimpleGrid columns={1} spacing={0}>
         {data[currentPageIndex].map((item: CardData) => (
-          <div key={item.gtin}>
-            <Card {...item} />
-          </div>
+          <Card {...item} key={item.gtin} />
         ))}
       </SimpleGrid>
-      <div>
+      <Flex justify="center">
         {totalPages > 0 && [...Array(totalPages)].map((_, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <button key={index} type="button" onClick={changePage} data-page={index + 1}>
+          <Button key={index} type="button" onClick={changePage} data-page={index + 1}>
             {index + 1}
-          </button>
+          </Button>
         ))}
-      </div>
+      </Flex>
     </Box>
   );
 }
