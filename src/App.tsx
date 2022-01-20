@@ -1,5 +1,5 @@
 import {
-  Header, Input, Cards, Filters, Loading,
+  Header, Input, Cards, Filters, Loading, NotFound,
 } from 'components';
 import { Box } from '@chakra-ui/react';
 import useCardsData from 'hooks/cardDataManagment';
@@ -32,7 +32,7 @@ function App() {
       </Box>
       {isLoading && <Loading />}
       {isCardsAvailable && <Cards data={searchResult} />}
-      {isNotFound && <p>not found</p>}
+      {isNotFound && <NotFound />}
     </Box>
   );
 }
