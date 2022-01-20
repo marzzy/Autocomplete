@@ -13,7 +13,13 @@ function SalePriceFilterBox(props: SalePriceFilterPropsType) {
   }
 
   return (
-    <Checkbox isDisabled={isDisable} onChange={handleSalePriceFilterToggle}>
+    <Checkbox
+      isDisabled={isDisable}
+      onChange={handleSalePriceFilterToggle}
+      my="1"
+      size="lg"
+      fontWeight="700"
+    >
       Products on Sale
     </Checkbox>
   );

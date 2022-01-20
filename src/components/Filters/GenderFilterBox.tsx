@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { Radio, RadioGroup, Stack } from '@chakra-ui/react';
+import {
+  Radio, RadioGroup, Stack, Flex, Text,
+} from '@chakra-ui/react';
 import { FilterGenderType } from 'types/cardData';
 
 type GenderFilterPropsType = {
@@ -17,14 +19,24 @@ function GenderFilterBox(props: GenderFilterPropsType) {
   }
 
   return (
-    <RadioGroup onChange={handleGenderFilterChange} value={val}>
-      <Stack direction="row">
-        <Radio value="all" isDisabled={isDisable}>All</Radio>
-        <Radio value="unisex" isDisabled={isDisable}>Unisex</Radio>
-        <Radio value="female" isDisabled={isDisable}>Femlae</Radio>
-        <Radio value="male" isDisabled={isDisable}>Male</Radio>
-      </Stack>
-    </RadioGroup>
+    <Flex
+      my="1"
+      alignItems="center"
+      justifyContent="space-around"
+      w={{ base: '100%', sm: 'auto' }}
+    >
+      <Text pe="2" fontSize="lg" fontWeight="bold">
+        Gender:
+      </Text>
+      <RadioGroup onChange={handleGenderFilterChange} value={val}>
+        <Stack direction={{ base: 'column', sm: 'row' }}>
+          <Radio value="all" isDisabled={isDisable}>All</Radio>
+          <Radio value="unisex" isDisabled={isDisable}>Unisex</Radio>
+          <Radio value="female" isDisabled={isDisable}>Femlae</Radio>
+          <Radio value="male" isDisabled={isDisable}>Male</Radio>
+        </Stack>
+      </RadioGroup>
+    </Flex>
   );
 }
 

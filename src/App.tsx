@@ -20,14 +20,16 @@ function App() {
   } = useCardsData();
 
   return (
-    <Box maxW="960px" m="auto">
+    <Box maxW="960px" m="auto" px="4">
       <Header />
-      <Input onChange={onSearchValueChange} />
-      <Filters
-        onSalePriceFilterToggle={onSalePriceFilterToggle}
-        onGenderFilter={onGenderFilter}
-        isDisable={!isCardsAvailable}
-      />
+      <Box bg="blue.200" p="5" borderRadius="7">
+        <Filters
+          onSalePriceFilterToggle={onSalePriceFilterToggle}
+          onGenderFilter={onGenderFilter}
+          isDisable={!isCardsAvailable}
+        />
+        <Input onChange={onSearchValueChange} />
+      </Box>
       {isLoading && <Loading />}
       {isCardsAvailable && <Cards data={searchResult} />}
       {isNotFound && <p>not found</p>}

@@ -1,5 +1,5 @@
 import {
-  Input, Stack, InputGroup, InputLeftElement,
+  Input, Flex, InputGroup, InputLeftElement,
 } from '@chakra-ui/react';
 import { Search2Icon } from '@chakra-ui/icons';
 import { ChangeEvent } from 'react';
@@ -10,16 +10,16 @@ function SearchInput(props: PropsType) {
   const { onChange } = props;
 
   return (
-    <Stack spacing={4}>
+    <Flex direction="column">
       <InputGroup>
         <InputLeftElement
           pointerEvents="none"
         >
           <Search2Icon color="gray.300" />
         </InputLeftElement>
-        <Input placeholder="choose the product" onChange={onChange} />
+        <Input placeholder="choose the product" onChange={onChange} size="lg" bg="White" />
       </InputGroup>
-    </Stack>
+    </Flex>
   );
 }
 

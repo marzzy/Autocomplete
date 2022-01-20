@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CardData } from 'types/cardData';
+import { CardDataPropsType } from 'types/cardData';
 import {
   Box, Heading, Flex, Text, Spacer,
 } from '@chakra-ui/react';
@@ -8,9 +8,9 @@ import GenderSvg from './Gender';
 import Price from './Price';
 import AdditionalImages from './AdditionalImages';
 
-function Card(props: CardData) {
+function Card(props: CardDataPropsType) {
   const {
-    title, gtin, gender, price, sale_price, image_link, additional_image_link,
+    title, gtin, gender, price, sale_price, image_link, additional_image_link, isSecoundryColor,
   } = props;
   const [isShowMore, setIsShowMoreValue] = useState(false);
 
@@ -19,9 +19,14 @@ function Card(props: CardData) {
   }
 
   return (
-    <Box borderTop="1px solid" borderColor="gray.300" pt="4">
-      <Flex onClick={toggleDisplayMore} className="pointer" pb="4">
-        <Flex align="center" mx={3}>
+    <Box borderTop="3px solid" borderColor="gray.300" pt="4" bg={isSecoundryColor ? 'white' : 'blue.50'}>
+      <Flex
+        onClick={toggleDisplayMore}
+        className="pointer"
+        pb="4"
+        direction={{ base: 'column', sm: 'row' }}
+      >
+        <Flex align="center" mx={3} direction={{ base: 'column', sm: 'row' }}>
           <Box boxSize="90px">
             <Image
               src={image_link}
@@ -29,7 +34,7 @@ function Card(props: CardData) {
             />
           </Box>
           <Box mx={3}>
-            <Flex align="center">
+            <Flex align="center" my="2">
               <GenderSvg gender={gender} />
               <Heading as="h2" size="sm">{title}</Heading>
             </Flex>
@@ -37,10 +42,14 @@ function Card(props: CardData) {
           </Box>
         </Flex>
         <Spacer />
-        <Text alignSelf="end" color="gray.500" fontSize="xs">{gtin}</Text>
+        <Text alignSelf="end" color="gray.500" fontSize="xs" mt="2" me="2">{gtin}</Text>
       </Flex>
       {isShowMore && (
-        <AdditionalImages additional_image_link={additional_image_link} title={title} />
+        <AdditionalImages
+          title={title}
+          isSecoundryColor={isSecoundryColor}
+          additionalImageLink={additional_image_link}
+        />
       )}
     </Box>
   );

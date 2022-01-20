@@ -7,7 +7,7 @@ function Price(props: PricePropsType) {
   const { price, sale_price } = props;
 
   return (
-    <Flex align="center">
+    <Flex align="center" my="2">
       <Text>
         {`price${' '}:${' '}`}
       </Text>

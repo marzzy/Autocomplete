@@ -23,13 +23,13 @@ function Cards(props: {data: CardData[][]}) {
   }
 
   return (
-    <Box my="5">
+    <Box mb="5">
       <SimpleGrid columns={1} spacing={0}>
-        {data[currentPageIndex].map((item: CardData) => (
-          <Card {...item} key={item.gtin} />
+        {data[currentPageIndex].map((item: CardData, index) => (
+          <Card {...item} isSecoundryColor={!!(index % 2)} key={item.gtin} />
         ))}
       </SimpleGrid>
-      <Flex justify="center">
+      <Flex justify="center" wrap="wrap">
         {totalPages > 0 && [...Array(totalPages)].map((_, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <Button key={index + 1} type="button" onClick={changePage} data-page={index + 1}>

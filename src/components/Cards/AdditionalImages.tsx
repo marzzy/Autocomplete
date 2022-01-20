@@ -1,13 +1,17 @@
 import { Flex } from '@chakra-ui/react';
 import Image from 'components/Image';
 
-function AdditionalImages(props : {additional_image_link: string, title: string}) {
-  const { additional_image_link, title } = props;
-  const imagesSrcs = additional_image_link.split(',');
+type AdditionalImagesPropsTypes = {
+  additionalImageLink: string, title: string, isSecoundryColor: boolean
+};
+
+function AdditionalImages(props : AdditionalImagesPropsTypes) {
+  const { additionalImageLink, title, isSecoundryColor } = props;
+  const imagesSrcs = additionalImageLink.split(',');
 
   if (imagesSrcs && imagesSrcs.length > 0) {
     return (
-      <Flex bg="gray.100" p="3">
+      <Flex p="3" bg={isSecoundryColor ? 'gray.50' : 'blue.100'}>
         {imagesSrcs.map((src) => (
           <Image src={src} alt={title} />
         ))}
