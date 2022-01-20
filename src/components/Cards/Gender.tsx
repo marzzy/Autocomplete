@@ -17,7 +17,7 @@ function GenderSvg(props: {gender: GenderType}) {
     return (
       <Flex me={3} shrink="0">
         {SvgSrcs[gender].map((src) => (
-          <Image src={src} alt={gender} />
+          <Image src={src} alt={gender} key={src} />
         ))}
       </Flex>
     );

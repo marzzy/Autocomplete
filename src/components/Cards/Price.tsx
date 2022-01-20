@@ -11,7 +11,7 @@ function Price(props: PricePropsType) {
       <Text>
         {`price${' '}:${' '}`}
       </Text>
-      {price === sale_price ? (
+      {price !== sale_price ? (
         <>
           <Text as="s" fontSize="xs" me="3">{price}</Text>
           <Text as="mark">{sale_price}</Text>

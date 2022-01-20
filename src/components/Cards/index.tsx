@@ -1,11 +1,13 @@
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable react/jsx-props-no-spreading */
 import {
   SimpleGrid, Box, Button, Flex,
 } from '@chakra-ui/react';
 import { CardData } from 'types/cardData';
 import { MouseEvent, useEffect, useState } from 'react';
 import Card from './Card';
+
+function generateUniqkey(index: number) {
+  return index + 1;
+}
 
 function Cards(props: {data: CardData[][]}) {
   const { data } = props;
@@ -30,7 +32,7 @@ function Cards(props: {data: CardData[][]}) {
       <Flex justify="center">
         {totalPages > 0 && [...Array(totalPages)].map((_, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <Button key={index} type="button" onClick={changePage} data-page={index + 1}>
+          <Button key={index + 1} type="button" onClick={changePage} data-page={index + 1}>
             {index + 1}
           </Button>
         ))}

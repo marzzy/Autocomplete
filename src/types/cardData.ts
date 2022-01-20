@@ -1,5 +1,7 @@
 export type GenderType = 'female' | 'male' | 'unisex';
 
+export type FilterGenderType = GenderType | 'all';
+
 export type PricePropsType = { price: string, sale_price: string };
 
 export type CardData = {

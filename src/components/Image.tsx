@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable react/jsx-props-no-spreading */
 import { useEffect, useState } from 'react';
 import { Image as ChakraImage } from '@chakra-ui/react';
 import getRandomImagePlaceholder from './utils';
@@ -15,6 +13,7 @@ function AsyncImage(props: ImagePropsType) {
   const { src, alt } = props;
   const [loadedSrc, setLoadedSrc] = useState('');
 
+  // eslint-disable-next-line consistent-return
   useEffect(() => {
     setLoadedSrc('');
     if (src) {

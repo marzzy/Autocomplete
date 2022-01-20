@@ -2,8 +2,7 @@
 import { CardData } from 'types/cardData';
 
 function searchWorker() {
-  // eslint-disable-next-line no-restricted-globals
-  self.onmessage = (message) => {
+  onmessage = (message) => {
     const { cardsData, searchValue } = message.data;
     const pureData = cardsData.filter(
       (item: CardData) => item.title.toLowerCase().includes(searchValue.toLowerCase()),
