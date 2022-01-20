@@ -16,3 +16,32 @@ code {
 .pointer {
   cursor: pointer;
 }
+
+.paginate-wrapper {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.paginate-wrapper li {
+  padding: 7px;
+}
+.paginate-wrapper li a {
+  padding: 7px;
+}
+.paginate-wrapper .previous,
+.paginate-wrapper .next {
+  background: #90cdf4;
+  border-radius: 30px;
+}
+.paginate-wrapper li.disabled {
+  background: #CBD5E0;
+  color: white;
+}
+.paginate-wrapper li.disabled a {
+  cursor: not-allowed;
+}
+.paginate-wrapper .current-page {
+  background-color: #63b3ed;
+  font-weight: bold;
+  border-radius: 100%;
+}
