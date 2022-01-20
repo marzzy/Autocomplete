@@ -40,7 +40,6 @@ function useCardsData() {
   }, [searchValue]);
 
   searchInstance.onmessage = ({ data }) => {
-    setSearchResult(data);
     filterInstance.postMessage({
       currentSearchedResult: data,
       filterType: 'updateSearchedData',
