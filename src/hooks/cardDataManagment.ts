@@ -70,6 +70,7 @@ function useCardsData() {
       isLoading,
       isCardsAvailable: searchResult[0].length > 0 && searchValue && !isLoading,
       isNotFound: searchResult[0].length === 0 && searchValue && !isLoading,
+      isFiltersDisable: isLoading || !searchValue,
     },
     actions: {
       onSearchValueChange,

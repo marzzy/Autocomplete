@@ -11,6 +11,7 @@ function App() {
       isLoading,
       isCardsAvailable,
       isNotFound,
+      isFiltersDisable,
     },
     actions: {
       onSearchValueChange,
@@ -26,7 +27,7 @@ function App() {
         <Filters
           onSalePriceFilterToggle={onSalePriceFilterToggle}
           onGenderFilter={onGenderFilter}
-          isDisable={!isCardsAvailable}
+          isDisable={isFiltersDisable}
         />
         <Input onChange={onSearchValueChange} />
       </Box>
