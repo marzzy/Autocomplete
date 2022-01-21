@@ -20,7 +20,8 @@
 4. The pagination is in the top and bottom of the cards for easy access and user convenience.
 5. The images are fetched asynchronously.
 6. On searching part we have `debounceing featuere` with 1 secound delay, which means after 1 secound that user stop typeing, we will search and display the results.
-7. The images have random image placeholder which display if an error happened or imaged crashed or even before image load
+7. The images have random image placeholder which display if an error happened or imaged crashed or even before image load.
+8. I wanted to write test on searching and filtering and not-found logic, but appearantly jest and testing lib doesnt support workers.
 
 ## Tools
 
